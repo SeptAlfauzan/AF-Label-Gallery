@@ -10,7 +10,8 @@ const SideBar: React.FC = () => {
   const router = useRouter();
 
   React.useEffect(() => {
-    setActive(router.route.split("/")[2]);
+    const slug = router.route.split("/")[2] || "dashboard";
+    setActive(slug);
   }, [router.route]);
 
   return (
@@ -39,7 +40,7 @@ const SideBar: React.FC = () => {
       </>
       {/* menu */}
       <ul className="w-full border-t-2 border-r-zinc-400 pt-10 mt-10 flex flex-col gap-4">
-        <SideBarLink name="dashboard" active={active} href="/admin/dashboard" />
+        <SideBarLink name="dashboard" active={active} href="/admin" />
         <SideBarLink name="products" active={active} href="/admin/products" />
         <SideBarLink
           name="categories"
