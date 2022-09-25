@@ -11,7 +11,7 @@ const prisma = new PrismaClient();
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data | boolean>
 ) {
   switch (req.method) {
     case "POST": //validate hash
@@ -19,17 +19,13 @@ export default async function handler(
       const user = await prisma.user.findFirst({
         where: { username },
       });
-      console.log(user);
-      console.log(
-        await validateHash(
-          password,
-          "$2b$10$F9WKUUuuzrNZaLTnwvFaIeUqEta/QoOHCeXu5ysk1NX2n6lXOiFwC"
-        )
-      );
+      if (!user) return res.status(404);
+      const isValid = await validateHash(password, user?.password);
+      return res.status(200).json(isValid);
       break;
     default: //test generate hash
       console.log(await generateHash(10, req.query.plain!.toString()));
+      res.status(200).json({ name: "John Doe" });
       break;
   }
-  res.status(200).json({ name: "John Doe" });
 }

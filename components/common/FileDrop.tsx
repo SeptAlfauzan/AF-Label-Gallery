@@ -1,11 +1,13 @@
 import React, { useCallback } from "react";
 import { useDropzone, FileWithPath } from "react-dropzone";
 
-interface FileDropProps {}
+interface FileDropProps {
+  onUpdate: (arg: FileWithPath) => void;
+}
 
-const FileDrop: React.FC<FileDropProps> = () => {
+const FileDrop: React.FC<FileDropProps> = ({ onUpdate }) => {
   const onDrop = React.useCallback((acceptedFiles: FileWithPath[]) => {
-    console.log(acceptedFiles[0].name);
+    onUpdate(acceptedFiles[0]);
   }, []);
 
   const {

@@ -33,7 +33,7 @@ model Product{
 }
 
 model Image{
-  id String @unique
+  id String @id @unique @default(uuid())
   url String
   product Product @relation(fields: [productId], references: [id])
   productId String
