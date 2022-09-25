@@ -79,8 +79,7 @@ const Products = ({
         body,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      const { url } = response.data;
-      return url;
+      return response.data;
     } catch (error) {
       console.log(error);
     }
@@ -92,14 +91,15 @@ const Products = ({
   const onSubmit = handleSubmit(async (data) => {
     try {
       if (!imgFile) return alert("Image must be added!");
-      const url = await uploadImage(imgFile);
 
       const product: Product = await (
         await axios.post("/api/products", data)
       ).data;
 
+      const imagekitResponse = await uploadImage(imgFile);
       const imageProduct = await axios.post("/api/images", {
-        url,
+        url: imagekitResponse.url,
+        id: imagekitResponse.fileId,
         productId: product.id,
       });
 
