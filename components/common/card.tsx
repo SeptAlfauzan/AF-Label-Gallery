@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 interface CardProps {
-  id: number;
+  id: string;
   imageSrc: string;
   imageAlt: string;
   nameProduct: string;
@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <Link href={`/collections/${id}`}>
-      <div className="group hover:scale-105 transition-all duration-150 border border-dashed border-zinc-400 p-4 flex flex-col w-[48%] md:w-[23%] h-[267px] text-[14px] mb-[40px] cursor-pointer">
+      <div className="group hover:scale-105 transition-all duration-150 border border-dashed border-zinc-400 p-4 flex flex-col w-[48%] md:w-[calc(25%-16px)] h-[267px] text-[14px] mb-[40px] cursor-pointer">
         <div className="relative w-full h-3/4">
           <Image
             src={imageSrc}

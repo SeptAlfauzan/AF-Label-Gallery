@@ -21,6 +21,7 @@ import {
 } from "react-icons/io5";
 import { getBase64string } from "../../../utils/base64";
 import { FileWithPath } from "file-selector";
+import Alert from "../../../components/common/Alert";
 
 interface ProductWithImage extends Product {
   image: string;
@@ -131,6 +132,7 @@ const Products = ({
   }, []);
   return (
     <AdminLayout>
+      <Alert />
       <CollapseContainer
         className="bg-white pb-10"
         ref={collapseRef}

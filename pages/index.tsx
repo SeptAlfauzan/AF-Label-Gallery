@@ -1,13 +1,28 @@
-import type { NextPage } from "next";
+import type { InferGetServerSidePropsType, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Card from "../components/common/card";
 import MainLayout from "../components/layouts/mainLayout";
+import { prisma } from "../prisma/prisma";
+
+export async function getServerSideProps() {
+  const products = await prisma.product.findMany({
+    include: { images: true },
+  });
+  return {
+    props: {
+      products,
+    },
+  };
+}
 
 const dummyImgURL: string =
   "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
 
-const Home: NextPage = () => {
+const Home = ({
+  products,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log(products);
   return (
     <MainLayout>
       <div id="home" className="flex flex-col gap-[7px] h-screen">
@@ -66,17 +81,14 @@ const Home: NextPage = () => {
             <div className="w-[100px] text-right self-end">see all</div>
           </Link>
         </div>
-        <div
-          id="card-container"
-          className="flex flex-row flex-wrap justify-between"
-        >
-          {new Array(4).fill(0).map((data, i) => (
+        <div id="card-container" className="flex flex-row flex-wrap gap-[16px]">
+          {products.map((data, i) => (
             <Card
               key={i}
-              id={i}
-              imageSrc={dummyImgURL}
+              id={data.id}
+              imageSrc={data.images[0] ? data.images[0].url : dummyImgURL}
               imageAlt={`image from data-${i}`}
-              nameProduct="Product name"
+              nameProduct={data.name}
               price={10000}
             />
           ))}
