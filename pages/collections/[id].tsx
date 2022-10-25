@@ -49,6 +49,14 @@ function Collection({
   selected,
   other,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { asPath } = useRouter();
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+
+  const URL = `${origin}${asPath}`;
+
   const router = useRouter();
   const { pid } = router.query;
   console.log(other);
@@ -75,9 +83,14 @@ function Collection({
               <span>Rp{selected?.price}</span>
             </div>
             <p className="text-zinc-500">{selected?.description}</p>
-            <button className="text-yellow-500 bg-dark-blue px-5 py-2 w-fit">
-              Pre-order now
-            </button>
+
+            <a
+              href={`https://api.whatsapp.com/send?phone=+6281331237275&text=${URL}%0a%0aHalo kak, permisi. Saya ingin order: %0a${selected?.name}%0aApakah bisa?`}
+            >
+              <button className="text-yellow-500 bg-dark-blue px-5 py-2 w-fit">
+                Pre-order now
+              </button>
+            </a>
           </div>
         </div>
         <div className="mt-10 flex flex-row w-full justify-between mb-10">
