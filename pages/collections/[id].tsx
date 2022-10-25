@@ -6,6 +6,7 @@ import React from "react";
 import Card from "../../components/common/card";
 import MainLayout from "../../components/layouts/mainLayout";
 import { prisma } from "../../prisma/prisma";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 const dummyImgURL: string =
   "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80";
@@ -62,6 +63,11 @@ function Collection({
   console.log(other);
   return (
     <MainLayout>
+      <LinkPreview
+        url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        width="400px"
+      />
+      ;
       <div
         id="collections"
         className="flex flex-col mt-0 md:mt-10 mb-[200px] h-fit"
