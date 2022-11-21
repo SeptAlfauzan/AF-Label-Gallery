@@ -3,6 +3,7 @@ import React from "react";
 import { IoMenuOutline } from "react-icons/io5";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const SideBar: React.FC = () => {
   const [minimize, setMinimize] = React.useState<boolean>(true);
@@ -13,6 +14,11 @@ const SideBar: React.FC = () => {
     const slug = router.route.split("/")[2] || "dashboard";
     setActive(slug);
   }, [router.route]);
+
+  const logout = async () => {
+    const status: number = (await axios.delete("/api/auth")).status;
+    if (status == 200) router.push("/collections");
+  };
 
   return (
     <nav
@@ -48,6 +54,7 @@ const SideBar: React.FC = () => {
           href="/admin/categories"
         />
         <li
+          onClick={logout}
           className={`hover:bg-gradient-to-br from-purple-600 to-pink-500 py-1 px-4 rounded-full hover:text-white text-black bg-white duration-250 transition-all cursor-pointer`}
         >
           Logout

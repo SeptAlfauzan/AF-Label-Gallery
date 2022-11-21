@@ -132,7 +132,7 @@ const Products = ({
   }, []);
   return (
     <AdminLayout>
-      <Alert />
+      {/* <Alert /> */}
       <CollapseContainer
         className="bg-white pb-10"
         ref={collapseRef}

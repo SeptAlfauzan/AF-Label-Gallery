@@ -16,13 +16,16 @@ const Auth: NextPage = () => {
   const router = useRouter();
 
   const onSubmit = handleSubmit(async (data: User) => {
+    console.log(data);
     try {
       const response = await axios.post("/api/auth", data);
+      console.log(response);
       response.data === true
         ? router.push("/admin")
         : alert("Wrong data inputed! Please check your username and password.");
     } catch (error) {
       alert(error);
+      console.log(error);
     }
   });
 

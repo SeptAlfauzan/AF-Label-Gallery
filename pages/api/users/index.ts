@@ -10,7 +10,7 @@ type Data = {
 const prisma = new PrismaClient();
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<User>
+  res: NextApiResponse<User | User[]>
 ) {
   switch (req.method) {
     case "POST": //validate hash
@@ -25,6 +25,8 @@ export default async function handler(
       res.status(200).json(user);
       break;
     default:
+      const users = await prisma.user.findMany();
+      res.status(200).json(users);
       break;
   }
 }

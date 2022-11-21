@@ -28,11 +28,11 @@ const Home = ({
       <div id="home" className="flex flex-col gap-[7px] h-screen">
         <div className="w-full md:w-2/4">
           <h3 className=" text-[34px] md:text-[54px] font-bold">
-            Lorem ipsum dolor sit emet.
+            AF Label'c Collections
           </h3>
-          <h5 className=" text-zinc-400 md:text-[30px] text-[16px]  mt-[10px]">
+          {/* <h5 className=" text-zinc-400 md:text-[30px] text-[16px]  mt-[10px]">
             Lorem ipsum dolor sit emet.
-          </h5>
+          </h5> */}
         </div>
         <Link href={"/collections"}>
           <button className="w-fit mt-[36px] bg-dark-blue text-white px-[46px] py-[16px] z-10 hover:bg-yellow-300 hover:text-dark-blue font-bold hover:scale-105 transition-all duration-100">
@@ -50,6 +50,7 @@ const Home = ({
               objectFit="cover"
               alt="image cover"
               layout="fill"
+              priority
             />
           </div>
         </div>
@@ -58,9 +59,9 @@ const Home = ({
       <div id="about-us" className="flex flex-col pt-[100px] -mt-[100px]">
         <h3 className="text-[24px]">ABOUT US</h3>
         <p className="text-zinc-400 text-[16px] mt-4 md:w-3/4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum minus
-          nostrum ea accusantium quod sed nisi, sint fugiat facere inventore
-          error quia? Soluta id, dolorum magnam eligendi iusto omnis sed.
+          AF_lebell merupakan brand lokal yang berdiri dari tahun 2020. AF
+          lebell ini merupakan brand atas nama gabungan dari owner-nya. kaos
+          launching AF lebell pertama bernama triangle
         </p>
         <div className="w-52 h-60 relative self-end mt-10">
           <Image
