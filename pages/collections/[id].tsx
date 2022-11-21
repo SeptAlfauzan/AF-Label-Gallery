@@ -63,11 +63,10 @@ function Collection({
   console.log(other);
   return (
     <MainLayout>
-      <LinkPreview
+      {/* <LinkPreview
         url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         width="400px"
-      />
-      ;
+      /> */}
       <div
         id="collections"
         className="flex flex-col mt-0 md:mt-10 mb-[200px] h-fit"

@@ -1,6 +1,7 @@
 import type { InferGetServerSidePropsType, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import Card from "../components/common/card";
 import MainLayout from "../components/layouts/mainLayout";
 import { prisma } from "../prisma/prisma";
@@ -22,13 +23,12 @@ const dummyImgURL: string =
 const Home = ({
   products,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log(products);
   return (
     <MainLayout>
       <div id="home" className="flex flex-col gap-[7px] h-screen">
         <div className="w-full md:w-2/4">
           <h3 className=" text-[34px] md:text-[54px] font-bold">
-            AF Label&apos;c Collections
+            AF Label&apos;s Collections
           </h3>
           {/* <h5 className=" text-zinc-400 md:text-[30px] text-[16px]  mt-[10px]">
             Lorem ipsum dolor sit emet.
@@ -45,12 +45,12 @@ const Home = ({
         >
           <StripBanner />
           <div className="w-52 h-3/4 md:w-1/4 md:h-2/4 lg:h-3/4 relative -bottom-10 md:absolute md:right-[200px] lg:right-[300px] lg:bottom-10">
-            <Image
-              src={dummyImgURL}
-              objectFit="cover"
-              alt="image cover"
-              layout="fill"
-              priority
+            <video
+              src="/af_lebell_20200909_p_2394366261393025444_1_2394366261393025444.mp4"
+              // controls
+              autoPlay
+              muted
+              loop
             />
           </div>
         </div>
@@ -65,12 +65,11 @@ const Home = ({
         </p>
         <div className="w-52 h-60 relative self-end mt-10">
           <Image
-            src={
-              "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-            }
+            src={"/REY04778.JPG"}
             objectFit="cover"
             alt="image about us"
             layout="fill"
+            priority
           />
         </div>
       </div>
