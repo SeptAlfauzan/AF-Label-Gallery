@@ -65,7 +65,7 @@ const Home = ({
         </p>
         <div className="w-52 h-60 relative self-end mt-10">
           <Image
-            src={"/REY04778.JPG"}
+            src={"/REY04778.jpg"}
             objectFit="cover"
             alt="image about us"
             layout="fill"
