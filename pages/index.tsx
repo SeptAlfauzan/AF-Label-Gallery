@@ -28,7 +28,7 @@ const Home = ({
       <div id="home" className="flex flex-col gap-[7px] h-screen">
         <div className="w-full md:w-2/4">
           <h3 className=" text-[34px] md:text-[54px] font-bold">
-            AF Label'c Collections
+            AF Label&apos;c Collections
           </h3>
           {/* <h5 className=" text-zinc-400 md:text-[30px] text-[16px]  mt-[10px]">
             Lorem ipsum dolor sit emet.
