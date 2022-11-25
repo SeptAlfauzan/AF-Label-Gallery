@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import Card from "../components/common/card";
 import MainLayout from "../components/layouts/mainLayout";
 import { prisma } from "../prisma/prisma";
+import AboutUsImage from "../public/image.jpg";
 
 export async function getServerSideProps() {
   const products = await prisma.product.findMany({
@@ -65,7 +66,7 @@ const Home = ({
         </p>
         <div className="w-52 h-60 relative self-end mt-10">
           <Image
-            src={"/REY04778.jpg"}
+            src={AboutUsImage}
             objectFit="cover"
             alt="image about us"
             layout="fill"
@@ -81,7 +82,7 @@ const Home = ({
             <div className="w-[100px] text-right self-end">see all</div>
           </Link>
         </div>
-        <div id="card-container" className="flex flex-row flex-wrap gap-[16px]">
+        <div id="card-container" className="flex flex-row gap-[16px]">
           {products.map((data, i) => (
             <Card
               key={i}
