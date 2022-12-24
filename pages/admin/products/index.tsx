@@ -85,10 +85,8 @@ const Products = ({
       console.log(error);
     }
   };
-
   const refetch = async () =>
     setData(await (await axios.get("/api/products")).data);
-
   const onSubmit = handleSubmit(async (data) => {
     try {
       if (!imgFile) return alert("Image must be added!");
@@ -114,12 +112,10 @@ const Products = ({
       console.log(error);
     }
   });
-
   const clearForm = (form: HTMLFormElement) => {
     setImgFile(null);
     form.reset();
   };
-
   console.log(triggerMenuIdx);
   React.useEffect(() => {
     const handleClick = (e: any) => {

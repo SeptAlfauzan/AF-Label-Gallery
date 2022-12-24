@@ -27,8 +27,8 @@ const Home = ({
   return (
     <MainLayout>
       <div id="home" className="flex flex-col gap-[7px] h-screen">
-        <div className="w-full md:w-2/4">
-          <h3 className=" text-[34px] md:text-[54px] font-bold">
+        <div className="w-full md:w-2/4 md:mt-0 mt-[42px]">
+          <h3 className="text-[34px] md:text-[54px] font-bold">
             AF Label&apos;s Collections
           </h3>
           {/* <h5 className=" text-zinc-400 md:text-[30px] text-[16px]  mt-[10px]">
@@ -42,11 +42,12 @@ const Home = ({
         </Link>
         <div
           id="image-banner"
-          className="absolute w-screen md:w-full left-0 h-1/2 md:h-3/4 bottom-0 overflow-x-clip flex justify-center items-end"
+          className="absolute w-screen md:w-full left-0 h-1/2 md:h-3/4 md:bottom-0 bottom-20 overflow-x-clip flex justify-center items-end"
         >
           <StripBanner />
-          <div className="w-52 h-3/4 md:w-1/4 md:h-2/4 lg:h-3/4 relative -bottom-10 md:absolute md:right-[200px] lg:right-[300px] lg:bottom-10">
+          <div className="w-[252px] h-3/4 md:w-1/4 md:h-2/4 lg:h-3/4 relative -bottom-10 md:absolute md:right-[200px] lg:right-[300px] lg:bottom-10">
             <video
+              className="w-full"
               src="/af_lebell_20200909_p_2394366261393025444_1_2394366261393025444.mp4"
               // controls
               autoPlay

@@ -41,9 +41,9 @@ const CollapseContainer = React.forwardRef<CollapseHandle, CollapseProps>(
         >
           {props.label}{" "}
           {_open ? (
-            <AiOutlineDown className="text-zinc-400" />
-          ) : (
             <AiOutlineUp className="text-zinc-400" />
+          ) : (
+            <AiOutlineDown className="text-zinc-400" />
           )}{" "}
         </button>
         {props.children}
